@@ -1,12 +1,12 @@
 <?php
-    use aulaThiagotas\Controller{
+    use AulaThiagotas\Controller{
         AlunoController,
         InitialController,
         LoginController,
         AutorController,
         CategoriaController,
         LivroController,
-        EmprestimoController;
+        EmprestimoController,
     };
 
     $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
