@@ -1,12 +1,12 @@
 <?php
-    use AulaThiagotas\Controller{
+     use AulaThiagotas\Controller\{
         AlunoController,
         InitialController,
         LoginController,
         AutorController,
         CategoriaController,
         LivroController,
-        EmprestimoController,
+        EmprestimoController
     };
 
     $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -15,95 +15,100 @@
     {
         case '/':
             InitialController::index();
+            break; // Corrigido
 
-            /**
-             *Rotas para o login
-             */
+        /**
+         * Rotas para o login
+         */
         case '/login':
             LoginController::index();
-        break;
-        case 'logout':
+            break;
+        
+        case '/logout': // Corrigido
             LoginController::logout();
-        break;
+            break;
 
         /**
          * Rotas para alunos
          */
         case '/aluno':
             AlunoController::index();
-        break;
+            break;
 
         case '/aluno/cadastro':
             AlunoController::cadastro();
-        break;
+            break;
         
         case '/aluno/delete':
             AlunoController::delete();
-        break;
+            break;
+
         /**
          * Rotas para os autores
          */
-
-         case '/autor':
+        case '/autor':
             AutorController::index();
-        break;
+            break;
 
         case '/autor/cadastro':
             AutorController::cadastro();
-        break;
+            break;
         
         case '/autor/delete':
             AutorController::delete();
-        break;
+            break;
 
         /**
          * Rotas para categorias
          */
-
-         case '/categoria':
+        case '/categoria':
             CategoriaController::index();
-        break;
+            break;
             
-        case'/categoria/cadastro':
+        case '/categoria/cadastro':
             CategoriaController::cadastro();
-        break;
+            break;
 
-        case '/cadastro/delete':
+        case '/categoria/delete': // Corrigido
             CategoriaController::delete();
-        break;
+            break;
 
         /**
-         * Rotas para Livros
+         * Rotas para livros
          */
-
         case '/livro':
             LivroController::index();
-        break;
+            break;
         
         case '/livro/cadastro':
             LivroController::cadastro();
-        break;
+            break;
 
         case '/livro/delete':
             LivroController::delete();
-        break;
+            break;
 
         /**
-         * Rotas para emprestimo
+         * Rotas para empréstimo
          */
-
         case '/emprestimo':
             EmprestimoController::index();
-        break;
+            break;
 
         case '/emprestimo/cadastro':
             EmprestimoController::cadastro();
-        break;
+            break;
 
         case '/emprestimo/delete':
             EmprestimoController::delete();
-        break;
+            break;
 
+        /**
+         * Rota padrão (404 - Não encontrado)
+         */
+        default:
+            http_response_code(404);
+            echo "Página não encontrada.";
+            break;
     }
-
 ?>
