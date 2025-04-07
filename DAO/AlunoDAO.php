@@ -12,7 +12,7 @@
 
         public function save(Aluno $model) : Aluno
         {
-            return ($model->Id == null)g ? $this->insert($model) : 
+            return ($model->Id == null) ? $this->insert($model) : 
             $this->update($model);
         }
 
@@ -33,7 +33,7 @@
 
         public function update(Aluno $model) : Aluno
         {
-            &sql = "UPDATE aluno SET nome=?, ra=?, curso=? WHERE id=?";
+            $sql = "UPDATE aluno SET nome=?, ra=?, curso=? WHERE id=?";
 
             $stmt = parent::$conexao->prepare($sql);
             $stmt->bindValue(1, $model->Nome);
@@ -50,12 +50,30 @@
             $sql = "SELECT * FROM aluno WHERE id=?";
 
             $stmt = parent::$conexao->prepare($sql);
-            $stmt->bindValue(1, $model->Nome);
-            $stmt->bindValue(2, $model-RA);
-            $stmt->bindValue(3, $model->Curso);
-            $stmt->bindValue(4, $model->Id);
+            $stmt->bindValue(1, $model->id);
+           
             $stmt->execute();
-
+            return $stmt->fetchObject("AulaThiagotas\Model\Aluno");
         }
+
+        public function select() : array 
+        {
+            $sql = "SELECT * FROM aluno";
+
+            $stmt = parent::$conexao->prepare($sql);
+            $stmt -> execute();
+
+            return $stmt-> fetchAll(DAO::FETCH_CLASS, "AulaThiagotas\Model\Aluno");
+        }
+
+        public function delete(int $id) : bool
+        {
+            $sql = "DELETE FROM aluno Where id=?";
+
+            $stmt = parent::$conexao->prepare($sql);
+            $stmt ->bindValue(1,$id);
+            return $stmt->execute();
+        }
+
     }
 ?>
