@@ -6,11 +6,11 @@ O sistema **BibliotecaMVC** é uma solução desenvolvida em **C#** com padrão 
 
 ## Principais Funcionalidades
 
-📚 **Cadastrar** livros, autores e usuários  
-🔍 **Consultar** acervo e histórico de empréstimos  
-📤 **Registrar** empréstimos e devoluções  
-✏️ **Editar** informações de livros e usuários  
-🗑️ **Excluir** registros desatualizados ou incorretos
+📚 '**Cadastrar**' livros, autores e usuários  
+🔍 '**Consultar**' acervo e histórico de empréstimos  
+📤 '**Registrar**' empréstimos e devoluções  
+✏️ '**Editar**' informações de livros e usuários  
+🗑️ '**Excluir**' registros desatualizados ou incorretos
 
 ---
 
