@@ -36,7 +36,7 @@
         {
             set
             {
-                if(strlen($value)){
+                if(strlen($value)<3){
                     throw new Exception("Curso deve ter no mínimo 3 caracteres.");
 
                     $this->Curso = $value;
