@@ -1,7 +1,7 @@
 <?php
      use AulaThiagotas\Controller\{
         AlunoController,
-        InitialController,
+        InicialController,
         LoginController,
         AutorController,
         CategoriaController,
@@ -14,7 +14,7 @@
     switch($url)
     {
         case '/':
-            InitialController::index();
+            InicialController::index();
             break; // Corrigido
 
         /**

@@ -23,10 +23,10 @@
             $stmt = parent::$conexao->prepare($sql);
 
             $stmt->bindValue(1, $model->Nome);
-            $stmt->bindValue(2, $model-RA);
+            $stmt->bindValue(2, $model->RA);
             $stmt->bindValue(3, $model->Curso);
             $stmt->execute();
-            $model->Id = parent::$conexao->lastInserId();
+            $model->Id = parent::$conexao->lastInsertId();
 
             return $model;
         }
@@ -37,7 +37,7 @@
 
             $stmt = parent::$conexao->prepare($sql);
             $stmt->bindValue(1, $model->Nome);
-            $stmt->bindValue(2, $model-RA);
+            $stmt->bindValue(2, $model->RA);
             $stmt->bindValue(3, $model->Curso);
             $stmt->bindValue(4, $model->Id);
             $stmt->execute();
@@ -47,15 +47,14 @@
 
         public function selectById(int $id) : ?Aluno
         {
-            $sql = "SELECT * FROM aluno WHERE id=?";
-
-            $stmt = parent::$conexao->prepare($sql);
-            $stmt->bindValue(1, $model->id);
-           
+            $sql = "SELECT * FROM aluno WHERE id=? ";
+    
+            $stmt = parent::$conexao->prepare($sql);  
+            $stmt->bindValue(1, $id);
             $stmt->execute();
+    
             return $stmt->fetchObject("AulaThiagotas\Model\Aluno");
         }
-
         public function select() : array 
         {
             $sql = "SELECT * FROM aluno";
