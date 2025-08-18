@@ -120,7 +120,7 @@ final class LivroDAO extends DAO
         $stmt->bindValue(1, $id);
         $stmt->execute();
 
-        $model = $stmt->fetchObject("App\Model\Livro");
+        $model = $stmt->fetchObject("AulaThiagotas\Model\Livro");
 
         /**
          * Obtendo a lista de autores
@@ -151,7 +151,7 @@ final class LivroDAO extends DAO
         // Retorna um array com as linhas retornadas da consulta. Observe que
         // o array é um array de objetos. Os objetos são do tipo stdClass e 
         // foram criados automaticamente pelo método fetchAll do PDO.
-        return $stmt->fetchAll(DAO::FETCH_CLASS, "App\Model\Livro");
+        return $stmt->fetchAll(DAO::FETCH_CLASS, "AulaThiagotas\Model\Livro");
     }
 
     /**
