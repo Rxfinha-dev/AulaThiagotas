@@ -10,6 +10,7 @@ use Exception;
  * Também é atribuído a Model a validação dos dados da View e controle de acesso aos métodos
  * da DAO.
  */
+#[\AllowDynamicProperties]
 final class Autor extends Model
 {
     /**

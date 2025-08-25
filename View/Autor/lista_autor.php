@@ -11,7 +11,7 @@
 <body>
 
     <div>
-        <?php include VIEWS . '/Includes/menu.php' ?>
+        <?php include VIEWS . '/Include/menu.php' ?>
 
         <h1>Lista de Autores</h1>
 

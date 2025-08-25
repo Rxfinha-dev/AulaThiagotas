@@ -11,7 +11,7 @@
 <body>
 
     <div>
-        <?php include VIEWS . '/Includes/menu.php' ?>
+        <?php include VIEWS . '/include/menu.php' ?>
 
         <h1>Cadastro de Autor</h1>
 

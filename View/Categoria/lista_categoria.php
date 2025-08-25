@@ -11,11 +11,12 @@
 <body>
 
     <div>
-        <?php include VIEWS . '/Includes/menu.php' ?>
+        <?php include VIEWS . '/Include/menu.php' ?>
 
         <h1>Lista de Categorias</h1>
 
         <a href="/categoria/cadastro">Nova Categoria</a>
+
 
         <?= $model->getErrors() ?>
 

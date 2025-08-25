@@ -2,6 +2,7 @@
 
 namespace AulaThiagotas\Model;
 
+
 abstract class Model
 {
     final public array $rows = [];

@@ -1,31 +1,35 @@
-<?php 
-
+<?php
 
 namespace AulaThiagotas\Model;
 
 use AulaThiagotas\DAO\CategoriaDAO;
-
 use Exception;
 
+#[\AllowDynamicProperties]
 final class Categoria extends Model
 {
+    
     public ?int $Id = null;
 
-    public ?string $Nome
+    public ?string $Descricao
     {
-        set{
-            if(strlen($value)<4)
-                throw new Exception("Nome deve ter no mínimo 4 caracteres.");
-            $this->Nome = $value;
+        set
+        {
+            if(strlen($value) < 3)
+                throw new Exception("Descricao deve ter no mínimo 3 caracteres.");
+
+            $this->Descricao = $value;
         }
-        
-        get => $this->Nome ?? null;
+
+        get => $this->Descricao ?? null;
     }
 
-    function save() : Categoria {
 
-        return new CategoriaDAO()->save($this);;
-        
+   
+    function save() : Categoria
+    {
+     
+        return new CategoriaDAO()->save($this);
     }
 
     function getById(int $id) : ?Categoria
@@ -33,16 +37,19 @@ final class Categoria extends Model
         return new CategoriaDAO()->selectById($id);
     }
 
-    function getAllRows(): array
+
+ 
+    function getAllRows() : array
     {
         $this->rows = new CategoriaDAO()->select();
 
         return $this->rows;
     }
 
-    function delete(int $id) : bool {
 
+
+    function delete(int $id) : bool
+    {
         return new CategoriaDAO()->delete($id);
-        
     }
 }

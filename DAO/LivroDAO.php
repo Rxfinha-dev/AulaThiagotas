@@ -67,10 +67,7 @@ final class LivroDAO extends DAO
     }
 
 
-    /**
-     * Método que recebe o Model preenchido e atualiza no banco de dados.
-     * Note que neste model é necessário ter a propriedade id preenchida.
-     */
+
     public function update(Livro $model) : Livro
     {
         parent::$conexao->beginTransaction();
@@ -138,9 +135,7 @@ final class LivroDAO extends DAO
     }
 
 
-    /**
-     * Método que retorna todas os registros da tabela pessoa no banco de dados.
-     */
+   
     public function select() : array
     {
         $sql = "SELECT * FROM livro ";
@@ -154,10 +149,7 @@ final class LivroDAO extends DAO
         return $stmt->fetchAll(DAO::FETCH_CLASS, "AulaThiagotas\Model\Livro");
     }
 
-    /**
-     * Remove um registro da tabela pessoa do banco de dados.
-     * Note que o método exige um parâmetro $id do tipo inteiro.
-     */
+   
     public function delete(int $id) : bool
     {
         $sql = "DELETE FROM livro WHERE id=? ";

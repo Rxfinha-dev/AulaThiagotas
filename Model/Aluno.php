@@ -5,17 +5,11 @@ namespace AulaThiagotas\Model;
 use AulaThiagotas\DAO\AlunoDAO;
 use Exception;
 
-/**
- * A camada model é responsável por transportar os dados da Controller até a DAO e vice-versa.
- * Também é atribuído a Model a validação dos dados da View e controle de acesso aos métodos
- * da DAO.
- */
+
+ #[\AllowDynamicProperties]
 final class Aluno extends Model
 {
-    /**
-     * Declaração das propriedades conforme campos da tabela no banco de dados.
-     * para saber mais sobre Propriedades de Classe, leia: https://www.php.net/manual/pt_BR/language.oop5.properties.php
-     */
+   
     public ?int $Id = null;
 
     public ?string $Nome
@@ -102,11 +96,7 @@ final class Aluno extends Model
     }
 
 
-    /**
-     * Método que encapsula o acesso a DAO do método delete.
-     * O método recebe um parâmetro do tipo inteiro que é o id do registro
-     * que será excluido da tabela no MySQL, via camada DAO.
-     */
+  
     function delete(int $id) : bool
     {
         return new AlunoDAO()->delete($id);
