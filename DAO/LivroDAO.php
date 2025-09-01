@@ -129,7 +129,7 @@ final class LivroDAO extends DAO
         $livro_autores_assoc = $stmt->fetchAll(DAO::FETCH_CLASS);
 
         foreach($livro_autores_assoc as $item)
-            $model->Id_Autores[] = $item->Id_Autor;
+            $model->Id_Autores[] = $item->id_autor;
 
         return $model;
     }

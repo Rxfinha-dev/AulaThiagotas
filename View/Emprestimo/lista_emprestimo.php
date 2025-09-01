@@ -34,7 +34,7 @@
                     <td> <?= $item->Id ?> </td>
                     <td> <a href="/emprestimo/cadastro?id=<?= $item->Id ?>"><?= $item->Dados_Aluno->Nome ?></a> </td>
                     <td> <?= $item->Dados_Livro->Titulo ?> </td>
-                    <td> <?= $item->Data_Devolucao ?> </td>
+                    <td> <?= $item->data_devolucao ?> </td>
                     <td> <a href="/emprestimo/delete?id=<?= $item->Id ?>">Remover</a> </td>
                 </tr>
                 <?php endforeach ?>

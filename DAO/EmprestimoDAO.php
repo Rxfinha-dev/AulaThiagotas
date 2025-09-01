@@ -101,8 +101,8 @@ final class EmprestimoDAO extends DAO
 
         foreach($arr_emprestimos as $item)
         {
-            $item->Dados_Aluno = new AlunoDAO()->selectById($item->Id_Aluno);
-            $item->Dados_Livro = new LivroDAO()->selectById($item->Id_Livro);
+            $item->Dados_Aluno = new AlunoDAO()->selectById($item->Id_aluno);
+            $item->Dados_Livro = new LivroDAO()->selectById($item->Id_livro);
         }
         
         return $arr_emprestimos;
